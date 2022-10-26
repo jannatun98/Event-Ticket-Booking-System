@@ -1,7 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AudienceController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\PerformersController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\TickettypeController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +22,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[HomeController::class,'home']);
+Route::get('/dashboard',[DashboardController::class,'dashboard']);
+Route::get('/audience',[AudienceController::class,'audience']);
+Route::get('/event',[EventController::class,'event']);
+Route::get('/location',[LocationController::class,'location']);
+Route::get('/performers',[PerformersController::class,'performer']);
+Route::get('/ticket',[TicketController::class,'ticket']);
+Route::get('/tickettype',[TickettypeController::class,'tickettype']);
+Route::get('/booking',[BookingController::class,'booking']);
+Route::get('/payment',[PaymentController::class,'payment']);
