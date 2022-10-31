@@ -5,11 +5,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AudienceController;
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\LocationController;
+use App\Http\Controllers\VenueController;
 use App\Http\Controllers\PerformersController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TickettypeController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\BookingdetailsController;
 use App\Http\Controllers\PaymentController;
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +26,12 @@ use App\Http\Controllers\PaymentController;
 Route::get('/',[HomeController::class,'home']);
 Route::get('/dashboard',[DashboardController::class,'dashboard']);
 Route::get('/audience',[AudienceController::class,'audience']);
+Route::get('/audience/form',[AudienceController::class,'form']);
 Route::get('/event',[EventController::class,'event']);
-Route::get('/location',[LocationController::class,'location']);
+Route::get('/venue',[VenueController::class,'venue']);
 Route::get('/performers',[PerformersController::class,'performer']);
 Route::get('/ticket',[TicketController::class,'ticket']);
 Route::get('/tickettype',[TickettypeController::class,'tickettype']);
 Route::get('/booking',[BookingController::class,'booking']);
+Route::get('/bookingdetails',[BookingdetailsController::class,'bookingdetails']);
 Route::get('/payment',[PaymentController::class,'payment']);

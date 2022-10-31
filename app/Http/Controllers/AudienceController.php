@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 class AudienceController extends Controller
 {
     Public function audience(){
-        return view('backend.pages.audience');
+        return view('backend.pages.audience.audience');
+    }
+
+    Public function form(){
+        return view('backend.pages.audience.form');
     }
 }
