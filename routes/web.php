@@ -25,8 +25,12 @@ use App\Http\Controllers\PaymentController;
 
 Route::get('/',[HomeController::class,'home']);
 Route::get('/dashboard',[DashboardController::class,'dashboard']);
+//Audience
 Route::get('/audience',[AudienceController::class,'audience']);
 Route::get('/audience/form',[AudienceController::class,'form']);
+Route::post('/audience/store',[AudienceController::class,'store'])->name('store.audience');
+
+
 Route::get('/event',[EventController::class,'event']);
 Route::get('/venue',[VenueController::class,'venue']);
 Route::get('/performers',[PerformersController::class,'performer']);

@@ -2,22 +2,20 @@
 
 @section('concert')
 
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<div style="padding:15px">
+  <form action="{{route('store.audience')}}" method="POST">
+    @csrf
+    <label for="name">Name</label>
+    <input  id="name" type="text" class="form-control" name="name">
+    <label for="email">Email</label>
+    <input  id="name" type="email" class="form-control" name="email">
+    <label for="contact">Contact</label>
+    <input  id="contact" type="tel" class="form-control" name="contact">
+    <label for="address">Address</label>
+    <input  id="address" type="text" class="form-control" name="address">
+    <button type="submit" class="btn btn-info mt-2">Submit</button>
+  </form>
+</div>
 
 
 @endsection
