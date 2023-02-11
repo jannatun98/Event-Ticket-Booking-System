@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
+            $table->string('image');
             $table->string('name',100);
+            $table->string('venue',100);
+            $table->string('event_type',100);
             $table->string('performer_id',150);
             $table->string('date',50);
             $table->timestamps();

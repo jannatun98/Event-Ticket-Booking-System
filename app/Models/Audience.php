@@ -10,6 +10,4 @@ class Audience extends Model
 
     protected $guarded=[];
 
-
-
 }
