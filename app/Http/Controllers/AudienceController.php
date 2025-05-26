@@ -8,84 +8,86 @@ use App\Models\Audience;
 
 class AudienceController extends Controller
 {
-    Public function audience(){
-        $aud_list=Audience::paginate(5);
+    public function audience()
+    {
+        $aud_list = Audience::paginate(5);
         //dd($aud_list);
 
         return view('backend.pages.audience.audience', compact('aud_list'));
     }
 
-    Public function form(){
+    public function form()
+    {
         return view('backend.pages.audience.form');
     }
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         // dd($request->all());
-        $fileName=null;
-        if($request->hasFile('image'))
-        {
+        $fileName = null;
+        if ($request->hasFile('image')) {
             // generate name
-            $fileName=date('Ymdhmi').'.'.$request->file('image')->getClientOriginalExtension();
-            $request->file('image')->storeAs('/uploads',$fileName);
+            $fileName = date('Ymdhmi') . '.' . $request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('/uploads', $fileName);
         }
         $request->validate([
 
-            'name'=>'required',
-            'email'=>'required|email',
-            'contact'=>'required',
-            'address'=>'required'
+            'name' => 'required',
+            'email' => 'required|email',
+            'contact' => 'required',
+            'address' => 'required'
 
         ]);
 
-        
+
         Audience::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'contact'=>$request->contact,
-            'address'=>$request->address,
-            'image'=>$fileName
-            
+            'name' => $request->name,
+            'email' => $request->email,
+            'contact' => $request->contact,
+            'address' => $request->address,
+            'image' => $fileName
+
         ]);
         return redirect()->back();
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         //dd($id);
         $audience = Audience::find($id)->delete();
         return back();
-
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $audience = Audience::find($id);
-        return view('backend.pages.audience.edit',compact('audience'));
-
+        return view('backend.pages.audience.edit', compact('audience'));
     }
 
-    public function update(Request $request,$audience_id){
+    public function update(Request $request, $audience_id)
+    {
 
-        $audience=Audience::find($audience_id);
-        $fileName=$audience->image;
+        $audience = Audience::find($audience_id);
+        $fileName = $audience->image;
 
-        if($request->hasFile('image'))
-        {
+        if ($request->hasFile('image')) {
             // generate name
-            $fileName=date('Ymdhmi').'.'.$request->file('image')->getClientOriginalExtension();
-            $request->file('image')->storeAs('/uploads',$fileName);
+            $fileName = date('Ymdhmi') . '.' . $request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('/uploads', $fileName);
         }
 
         $audience->update([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'contact'=>$request->contact,
-            'address'=>$request->address,
-            
-            
+            'name' => $request->name,
+            'email' => $request->email,
+            'contact' => $request->contact,
+            'address' => $request->address,
+
+
         ]);
-        return redirect()->route('audience')->with('message','Updated Successfully.');
+        return redirect()->route('audience')->with('message', 'Updated Successfully.');
     }
 
-    public function view(){
+    public function view()
+    {
         return view('backend.pages.audience.view');
     }
-
 }

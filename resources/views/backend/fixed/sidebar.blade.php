@@ -5,6 +5,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
+                            <a class="nav-link" href="{{route('general.setting')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-cog"></i></div>
+                                General Setting
+                            </a>
                             <a class="nav-link" href="{{url('/audience')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Audience

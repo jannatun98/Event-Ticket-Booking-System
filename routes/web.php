@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AudienceController;
+use App\Http\Controllers\Backend\GeneralSettingController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventtypeController;
 use App\Http\Controllers\VenueController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\BookingdetailsController;
 use App\Http\Controllers\Frontend\WebController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\PaymentController;
+use App\Models\GeneralSetting;
 use App\Models\Performer;
 use GuzzleHttp\Middleware;
 use Illuminate\Auth\Events\Logout;
@@ -58,6 +60,14 @@ Route::get('/logout',[AuthController::class,'logout'])->name('admin.logout');
 
   
 Route::get('/',[DashboardController::class,'dashboard'])->name("dashboard");
+
+//General Setting
+Route::get('/generalSetting',[GeneralSettingController::class,'generalSetting'])->name('general.setting');
+Route::get('/generalSetting/form',[GeneralSettingController::class,'form'])->name('general.setting.form');
+Route::post('/generalSetting/store',[GeneralSettingController::class,'store'])->name('general.setting.store');
+Route::get('/generalSetting/view/{id}',[GeneralSettingController::class,'view'])->name('generalSetting.view');
+Route::get('/generalSetting/edit/{id}',[GeneralSettingController::class,'edit'])->name('generalSetting.edit');
+Route::post('/generalSetting/update/{id}',[GeneralSettingController::class,'update'])->name('generalSetting.update');
 
 //Audience
 Route::get('/audience',[AudienceController::class,'audience'])->name('audience');
